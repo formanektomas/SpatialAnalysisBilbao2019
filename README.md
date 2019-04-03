@@ -9,8 +9,8 @@ Department of Econometrics (Faculty of Informatics and Statistics)
 University of Economics, Prague  
 </p>
 <hr size=2>
-## <p> Day 1: R/RStudio for spatial analysis</br> 
-</p>
+
+## <p> Day 1: R/RStudio for spatial analysis</br></p>
 
 ### <p> Seminar 1 (optional):</br> 
 - General R/RStudio introduction  
@@ -34,9 +34,27 @@ University of Economics, Prague
 - Choropleths (infomaps) in {ggplot2}
 </p>
 
+<hr size=2>
 
+## <p> Day 2: Spatial statistics and spatial econometrics: an introduction</br></p>
 
+### Lecture 1:  
+- Spatial data: basic features and analysis tools (stationarity, semivariogram)  
+- Spatial structure (definition of neighbors)  
+- Spatial dependency and corresponding tests  
+- Spatial clusters  
+- Simple predictions based on spatial data (spatial interpolation)  
 
+### Lecture 2:
+- Spatial econometric models for cross-sectional (CS) data   
+- Estimation and interpretation of selected spatial CS model types   
+- Robustness of the estimated models with respect to changing spatial structure   
+- Spatial econometrics using panel data (brief introduction)   
+
+### Seminars 4 and 5  
+- Seminars follow the topics of Lectures 1 and 2  
+- Seminars are based on R/RStudio  
+- `{spdep}` and `{splm}` packages are used.  
 
 
  Access open data from [Eurostat](http://ec.europa.eu/eurostat). Data search, download, manipulation and visualization. 
