@@ -28,8 +28,8 @@ University of Economics, Prague
 </p>
 
 ### <p> Seminar 3:</br> 
-- {sf} package for handling spatial data  
-- Eurostat data and R  
+- `{sf}` package for handling spatial data  
+- [Eurostat](http://ec.europa.eu/eurostat) data and R (data search, download)
 - Maps in `{ggplot2}`  
 - Choropleths (infomaps) in `{ggplot2}`
 </p>
@@ -55,8 +55,3 @@ University of Economics, Prague
 - Seminars follow the topics of Lectures 1 and 2  
 - Seminars are based on R/RStudio  
 - `{spdep}` and `{splm}` packages are used.  
-
-
- Access open data from [Eurostat](http://ec.europa.eu/eurostat). Data search, download, manipulation and visualization. 
-
-
