@@ -1,41 +1,38 @@
-# Seminar on spatial analysis </p> 
-</p> 
-20-24 May 2019, Bilbao  </p> 
-Universidad del País Vasco  </p> 
-</p> 
-</p> 
+# <p> Seminar on spatial analysis </p> 
+</br> 
+20-24 May 2019, Bilbao  </br> 
+Universidad del País Vasco  </br> 
 
-## Seminar held by:</p>
-Tomas Formanek</p>
-Department of Econometrics (Faculty of Informatics and Statistics)</p>
-University of Economics, Prague</p>
-</p>
+
+## <p>Seminar held by:</br> 
+Tomas Formanek</br> 
+Department of Econometrics (Faculty of Informatics and Statistics)</br> 
+University of Economics, Prague</br> 
 </p>
 
-## Day 1: R/RStudio for spatial analysis</p>
+## <p> Day 1: R/RStudio for spatial analysis</br> 
 </p>
 
-### Seminar 1 (optional):</p>
-- General R/RStudio introduction</p>
-- Global environment, commands, packages</p>
-- Linear regression in R (syntax)</p>
-- Data types and basic data operations (filtering and merging data frames)</p>
+### <p> Seminar 1 (optional):</br> 
+- General R/RStudio introduction  
+- Global environment, commands, packages 
+- Linear regression in R (syntax)  
+- Data types and basic data operations (filtering and merging data frames) 
 </p>
 
-### Seminar 2:</p>
-- {tidyverse} packages, introduction</p>
-- Simple plots with {ggplot2}</p>
-- Adding features (layers) to {ggplot2} plots</p>
-- {dplyr} and {tidy} basic features</p>
-- Data handling with focus on long and short format</p>
+### <p> Seminar 2: 
+- {tidyverse} packages, introduction</br> 
+- Simple plots with {ggplot2} 
+- Adding features (layers) to {ggplot2} plots 
+- {dplyr} and {tidy} basic features 
+- Data handling with focus on long and short format 
 </p>
 
-### Seminar 3:</p>
-- {sf} package for handling spatial data</p>
-- Eurostat data and R</p>
-- Maps in {ggplot2}</p>
-- Choropleths (infomaps) in {ggplot2}</p>
-</p>
+### <p> Seminar 3:</br> 
+- {sf} package for handling spatial data  
+- Eurostat data and R  
+- Maps in {ggplot2}  
+- Choropleths (infomaps) in {ggplot2}
 </p>
 
 
