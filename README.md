@@ -1,15 +1,14 @@
 # <p> Seminar on spatial analysis </p> 
 </br> 
-20-24 May 2019, Bilbao  </br> 
+20-24 May 2019, Bilbao   
 Universidad del País Vasco  </br> 
 
-
-## <p>Seminar held by:</br> 
-Tomas Formanek</br> 
-Department of Econometrics (Faculty of Informatics and Statistics)</br> 
-University of Economics, Prague</br> 
+**Seminar held by:**  
+Tomas Formanek   
+Department of Econometrics (Faculty of Informatics and Statistics)  
+University of Economics, Prague  
 </p>
-
+<hr size=2>
 ## <p> Day 1: R/RStudio for spatial analysis</br> 
 </p>
 
