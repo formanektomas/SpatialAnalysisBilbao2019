@@ -13,14 +13,14 @@ University of Economics, Prague
 ## <p> Day 1: R/RStudio for spatial analysis</br></p>
 
 ### <p> Seminar 1 (optional):</br> 
-- General R/RStudio introduction  
+- General [R](https://www.r-project.org/) / [RStudio](https://www.rstudio.com/products/RStudio/) introduction  
 - Global environment, commands, packages 
 - Linear regression in R (syntax)  
 - Data types and basic data operations (filtering and merging data frames) 
 </p>
 
 ### <p> Seminar 2: 
-- `{tidyverse}` packages, introduction</br> 
+- `{tidyverse}` [packages](https://www.rstudio.com/products/rpackages/), introduction</br> 
 - Simple plots with `{ggplot2}` 
 - Adding features (layers) to `{ggplot2}` plots 
 - `{dplyr}` and `{tidy}` basic features 
