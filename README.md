@@ -23,7 +23,7 @@ University of Economics, Prague
 - `{tidyverse}` [packages](https://www.rstudio.com/products/rpackages/), introduction</br> 
 - Simple plots with `{ggplot2}` 
 - Adding features (layers) to `{ggplot2}` plots 
-- `{dplyr}` and `{tidy}` basic features 
+- `{dplyr}` and `{tidyr}` basic features 
 - Data handling with focus on long and short format 
 </p>
 
