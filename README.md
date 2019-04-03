@@ -51,7 +51,7 @@ University of Economics, Prague
 - Robustness of the estimated models with respect to changing spatial structure   
 - Spatial econometrics using panel data (brief introduction)   
 
-### Seminars 4 and 5  
+### Seminars 4 and 5:  
 - Seminars follow the topics of Lectures 1 and 2  
 - Seminars are based on R/RStudio  
 - `{spdep}` and `{splm}` packages are used.  
