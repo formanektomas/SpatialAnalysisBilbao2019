@@ -20,18 +20,18 @@ University of Economics, Prague
 </p>
 
 ### <p> Seminar 2: 
-- {tidyverse} packages, introduction</br> 
-- Simple plots with {ggplot2} 
-- Adding features (layers) to {ggplot2} plots 
-- {dplyr} and {tidy} basic features 
+- `{tidyverse}` packages, introduction</br> 
+- Simple plots with `{ggplot2}` 
+- Adding features (layers) to `{ggplot2}` plots 
+- `{dplyr}` and `{tidy}` basic features 
 - Data handling with focus on long and short format 
 </p>
 
 ### <p> Seminar 3:</br> 
 - {sf} package for handling spatial data  
 - Eurostat data and R  
-- Maps in {ggplot2}  
-- Choropleths (infomaps) in {ggplot2}
+- Maps in `{ggplot2}`  
+- Choropleths (infomaps) in `{ggplot2}`
 </p>
 
 <hr size=2>
@@ -43,7 +43,7 @@ University of Economics, Prague
 - Spatial structure (definition of neighbors)  
 - Spatial dependency and corresponding tests  
 - Spatial clusters  
-- Simple predictions based on spatial data (spatial interpolation)  
+- Simple predictions based on spatial data (spatial interpolation, krigging)  
 
 ### Lecture 2:
 - Spatial econometric models for cross-sectional (CS) data   
