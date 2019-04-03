@@ -1,0 +1,120 @@
+---
+title: "Semivariogram example - Meuse river sediments"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(sp)
+library(gstat)
+data(meuse)
+```
+
+This illustration uses the Meuse dataset included in gstat which comprises of four heavy metals measured in the top soil in a flood plain along the river Meuse.Apparently polluted sediment is carried by the river and mostly deposited close to the river bank.
+
+```{r}
+str(meuse)
+```
+
+--- 
+
+## Coordinates
+
+Function `coordinates()`: promotes the data.frame meuse into a SpatialPointsDataFrame which knows about its spatial coordinates.
+
+```{r}
+coordinates(meuse) = ~x+y
+class(meuse)
+str(meuse)
+```
+
+The function `coordinates()` can retrieve spatial coordinates from a SpatialPointsDataFrame: 
+
+```{r}
+coordinates(meuse)[5:15,]
+```
+
+Now, we can use plotting functions spplot and bubble as illustrated below (note: the x- and y-axis are the spatial coordinates)
+
+
+```{r}
+spplot(meuse, "zinc",  colorkey = TRUE, main = "zinc concentrations (ppm)")
+bubble(meuse, "zinc", col=c("#00ff0088"), main = "zinc concentrations (ppm)")
+```
+
+Instead of points, we may plot "polygons" (regions):
+
+```{r}
+data(meuse.grid) # we read-in a grid (map)
+coordinates(meuse.grid) = ~x+y
+gridded(meuse.grid) = TRUE
+class(meuse.grid)
+# Concentrations seem to follow (inversely) from distances to the river
+image(meuse.grid["dist"], main="distance to river (red = 0)")
+```
+
+---- 
+
+## Semivariogram
+
+* Calculate the sample variogram. This is done with the `variogram()` function.
+
+* Fit a model to the sample variogram using `fit.variogram()` function
+
+The `variogram()` function takes two arguments: the first denotes how one or more variables interact spatially, and the second is an SPDF where those variables reside. 
+
+* In our example, we assume that there is a constant mean (no trend) for the variable `log(zinc)`
+
+```{r}
+lzn.vgm <- variogram(log(zinc)~1, meuse) # calculates sample variogram values 
+lzn.vgm # 15 groups, # obs per group, repr. distance, gamma, isotropy assumed
+```
+
+
+For the `fit.variogram()` function, a sample variogram is the first argument. The second is the model, with parameters, to be fit to the sample variogram. For a list of all possible variograms that can be used, call `?vgm`, and to see graphical properties/characteristics of these models, call  `?show.vgms`.
+
+
+```{r}
+lzn.fit <- fit.variogram(lzn.vgm, model=vgm(psill=1, "Sph", range=900, nugget=1)) # fit model
+lzn.fit
+plot(lzn.vgm, lzn.fit) # plot the fitted variogram and the observed variogram on the same graph
+```
+
+----- 
+
+## Fitted semivariograms depend on assumptions used:
+
+**Gaussian** semivariance wrt distance:
+
+```{r}
+lzn.gau <- fit.variogram(lzn.vgm, model=vgm(psill=1, "Gau", range=900, nugget=1)) # fit model
+lzn.gau
+plot(lzn.vgm, lzn.gau) 
+```
+
+**Exponential** semivariance wrt distance:
+
+```{r}
+lzn.exp <- fit.variogram(lzn.vgm, model=vgm(psill=1, "Exp", range=900, nugget=1)) # fit model
+lzn.exp
+plot(lzn.vgm, lzn.exp) 
+```
+
+
+------ 
+
+**Directional (anisotropic)** semivariance wrt distance:
+
+```{r}
+vgm3.dir <- variogram(log(zinc)~1, meuse, alpha = c(0, 45, 90, 135))
+vgm3.fit.d <- fit.variogram(vgm3.dir, model = vgm(.59, "Sph", 1200, .05, anis = c(45, .4)))
+vgm3.fit.d
+plot(vgm3.dir, vgm3.fit.d, as.table = T)
+```
+
+
+------
+
+For spatio-temporal semivariogram, see e.g. [tutorial here](http://r-video-tutorial.blogspot.com/2015/08/spatio-temporal-kriging-in-r.html)
+
+

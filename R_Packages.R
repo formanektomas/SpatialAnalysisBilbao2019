@@ -1,0 +1,15 @@
+#### Spatial analysis ####
+#
+install.packages(c("ggplot2","dplyr","tidyr","tidyverse","reshape2"), dependencies = T)
+#
+install.packages(c("ISLR","markdown","knitr"), dependencies = T)
+#
+install.packages(c("yaml","qtl","WDI","countrycode"), dependencies = T)
+#
+install.packages(c("sf","rgdal","rgeos","eurostat"), dependencies = T)
+#
+install.packages("RColorBrewer", dependencies = T)
+# 
+install.packages(c("spdep","splm","spmoran","gstat"), dependencies = T)
+#
+install.packages(c("car","MASS","lmtest","glmpath"), dependencies = T)

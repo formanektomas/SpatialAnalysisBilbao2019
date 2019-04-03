@@ -1,0 +1,56 @@
+---
+title: "Knitr - a basic example"
+author: "Insert your name here"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    df_print: paged
+---
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you *click* the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+summary(cars)
+```
+
+You can hide the `summary(cars)` R code from the knitted output:
+(this is done using the `echo=FALSE` parameter)  
+Note: two empty spaces at the end of a line force a line return
+
+* Lists are insterted using `*`
+* Horizontal lines `---`
+* Headings are produced using `#`, `##`, etc. 
+* Math expression are inserted through `LaTex` syntax: $\hat{\beta}_1$, $\sigma_i^2$
+
+---
+
+# Heading 1
+## Heading 2
+### Heading 3
+#### Another `R` code \& output goes here:
+
+
+```{r}
+summary(cars)
+```
+
+Additional information on the data:
+```{r, echo=T}
+str(cars)
+```
+
+
+You can also embed plots, for example:
+
+```{r, echo=T}
+plot(cars)
+```
+
+Alternatively, you can hide the plot command `plot(cars)` using `echo=FALSE`:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
