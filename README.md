@@ -52,4 +52,3 @@ University of Economics, Prague
 - Spatial econometric models for cross-sectional (CS) data   
 - Estimation and interpretation of selected spatial CS model types   
 - Robustness of the estimated models with respect to changing spatial structure
-
