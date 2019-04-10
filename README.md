@@ -22,10 +22,9 @@ University of Economics, Prague
 ### <p> Seminar 2: Data handling and plotting I - Tools (10:30 - 11:45) </br> 
 - Data types and basic data operations (filtering and merging data frames)   
 - `{tidyverse}` [packages](https://www.rstudio.com/products/rpackages/), introduction</br> 
-- Simple plots with `{ggplot2}` 
-- Adding features (layers) to `{ggplot2}` plots 
+- Simple plots with `{ggplot2}`, adding features (layers)   
 - Data handling with focus on long and short format with `{tidyr}` package
-- `{dplyr}` and  basic features 
+- `{dplyr}` packages and its  basic features 
 </p>
 
 ### <p> Seminar 3: Data handling and plotting II - Choropleths (12:00 - 13:15) </br> 
