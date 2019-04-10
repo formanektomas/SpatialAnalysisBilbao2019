@@ -4,7 +4,7 @@
 Universidad del País Vasco  </br> 
 
 **Seminar held by:**  
-Tomas Formanek   
+[Tomas Formanek](https://formanektomas.github.io/)     
 Department of Econometrics (Faculty of Informatics and Statistics)  
 University of Economics, Prague  
 </p>
