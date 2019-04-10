@@ -24,7 +24,7 @@ University of Economics, Prague
 - `{tidyverse}` [packages](https://www.rstudio.com/products/rpackages/), introduction</br> 
 - Simple plots with `{ggplot2}`, adding features (layers)   
 - Data handling with focus on long and short format with `{tidyr}` package
-- `{dplyr}` packages and its  basic features 
+- `{dplyr}` package and its  basic features 
   
 
 ### Seminar 3: Data handling and plotting II. -- Choropleths (12:00 - 13:15)  
