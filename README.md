@@ -36,7 +36,7 @@ University of Economics, Prague
 
 ---
 
-## Day 2 (21. 5. 2019): Spatial statistics and spatial econometrics: an introduction  
+## Day 2 (21. 5. 2019): Spatial analysis: an introduction  
 
 ### Seminar 1: Introduction to spatial statistics with applications in R (09:00 - 10:15) 
 - Spatial data: basic features and analysis tools (stationarity, semivariogram)  
