@@ -47,7 +47,6 @@ University of Economics, Prague
 ### <p> Seminar 2: Introduction to spatial econometrics (10:30 - 11:45) </br> 
 - Spatial structure (definition of neighbors)  
 - Spatial dependency and corresponding tests  
-- Spatial clusters  
 
 
 ### <p> Seminar 3: Spatial econometric models (12:00 - 13:15) </br> 
