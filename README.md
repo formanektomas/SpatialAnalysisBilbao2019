@@ -64,7 +64,7 @@ Please observe the following instructions:
 - Have [R](https://www.r-project.org/) version 3.6.0 (3.5.3 is also OK) installed on your device (PC/Mac/Linux)  
 - Have [RStudio](https://www.rstudio.com/products/rstudio/download/) installed (free desktop version 1.2.1335 or newer)  
 - Setup an *R working directory* (e.g. on your machine's Desktop) - see instructions [Changing the Working Directory](https://support.rstudio.com/hc/en-us/articles/200711843-Working-Directories-and-Workspaces)  
-- Download all files from [GitHub repository](https://github.com/formanektomas/SpatialAnalysisBilbao2019) (use the green button "Clone or download") to your *R working directory*  
+- Download all files from [GitHub repository](https://github.com/formanektomas/SpatialAnalysisBilbao2019) to your *R working directory*  (if not familiar with Git/GitHub, just use the green button "Clone or download")  
 - Install all packages for the course - run the file `R_Packages.R` downloaded from GitHub repository for this course.  
 - If you have no previous exprerience with R/RStudio and have troubles following the above instruction, you may consider taking a free R/RStudio online course before attending to the seminar on spatial analysis, e.g.:  [R Basics - R Programming Language Introduction](https://www.udemy.com/r-basics/)  
 
