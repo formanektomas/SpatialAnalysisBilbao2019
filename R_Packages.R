@@ -10,6 +10,6 @@ install.packages(c("sf","rgdal","rgeos","eurostat"), dependencies = T)
 #
 install.packages("RColorBrewer", dependencies = T)
 # 
-install.packages(c("spdep","splm","spmoran","gstat"), dependencies = T)
+install.packages(c("spdep","spatialreg","splm","spmoran","gstat"), dependencies = T)
 #
 install.packages(c("car","MASS","lmtest","glmpath"), dependencies = T)
