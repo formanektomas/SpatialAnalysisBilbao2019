@@ -52,3 +52,19 @@ University of Economics, Prague
 - Spatial econometric models for cross-sectional (CS) data   
 - Estimation and interpretation of selected spatial CS model types   
 - Robustness of the estimated models with respect to changing spatial structure
+
+
+---  
+
+### Instructions for course participants
+
+Please observe the following instructions:
+
+- Bring your own laptop/notebook, make sure you have access to the Internet (e.g. through **eduroam** at Universidad del País Vasco)  
+- Have [R](https://www.r-project.org/) version 3.6.0 (3.5.3 is also OK) installed on your device (PC/Mac/Linux)  
+- Have [RStudio](https://www.rstudio.com/products/rstudio/download/) installed (free desktop version 1.2.1335 or newer)  
+- Setup an *R working directory* (e.g. on your desktop) - see instructions [Changing the Working Directory](https://support.rstudio.com/hc/en-us/articles/200711843-Working-Directories-and-Workspaces)  
+- Download all files from [GitHub repository](https://github.com/formanektomas/SpatialAnalysisBilbao2019) (use the green button "Clone or download") to your *R working directory*  
+- Install all packages for the course - run the file `R_Packages.R` downloaded from GitHub repository for this course.  
+- If you have no previous exprerience with R/RStudio and have troubles following the above instruction, you may consider taking this free R/RStudio online course before attending to the seminar on spatial analysis:  [R Basics - R Programming Language Introduction](https://www.udemy.com/r-basics/)  
+- 
