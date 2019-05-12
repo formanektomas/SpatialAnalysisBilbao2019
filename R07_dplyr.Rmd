@@ -1,0 +1,346 @@
+---
+title: "Manipulating and analyzing data with dplyr"
+output: html_document
+---
+
+
+------------
+
+> ### Learning Objectives
+>
+> * Select certain columns in a data frame with the **`dplyr`** function `select`.
+> * Select certain rows in a data frame according to filtering conditions with the **`dplyr`** function `filter` .
+> * Link the output of one **`dplyr`** function to the input of another function with the 'pipe' operator `%>%`.  
+> * Add new columns to a data frame that are functions of existing columns with `mutate`.  
+> * Use `summarize` and `group_by` to split a data frame into groups of observations, apply summary statistics for each group, and then combine the results.
+
+----
+
+# Data Manipulation using **`dplyr`**
+
+* Bracket subsetting `[,]` (with logical operators) is handy, but it can be cumbersome and difficult to read, especially for complicated operations. 
+
+* **`dplyr`** is a package for making tabular data manipulation easier. 
+
+* It pairs nicely with **`tidyr`** which enables you to swiftly convert between different data formats for plotting and analysis.
+
+* To learn more about **`dplyr`** and **`tidyr`** , you may want to check out this
+[handy data transformation with **`dplyr`** cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) and this [one about **`tidyr`**](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf).
+
+
+```{r, message = FALSE,}
+## load dplyr
+library("dplyr")
+```
+
+## Sample data
+
+
+```{r, message = FALSE,}
+## load sample data
+NUTS2.DF <- read.csv("datasets/NUTS2data.csv")
+# summary(NUTS2.DF)
+str(NUTS2.DF)
+```
+
+| Variable    | Description                                                     |
+|-------------|-----------------------------------------------------------------|
+| Year        |  time identification of the observation 2010 - 2016             |
+| NUTS2       |  NUTS2 geographic identification of the observation             |
+| NUTS0       |  State-level identification (AT BE CZ DE DK HU LU NL PL SI SK)  |
+| GDP_MIO_EUR |  GDP in Mio EUR per NUTS2 per Year                              |
+| TotPopNr    |  Number of inhabitants                                          |
+| Area        |  geographic area in km sq.                                      |
+
+
+--- 
+
+# Basic **`dplyr`** functionality
+
+## `select()`  - subset columns
+
+* The first argument to this function is the data frame: `NUTS2.DF`,
+* Subsequent arguments are the columns to keep.
+
+```{r}
+DF2 <- select(NUTS2.DF, Year, NUTS2, TotPopNr)
+head(DF2,10)
+
+```
+
+* To select all columns *except* certain ones, put a "-" in front of the variable to exclude it.
+
+```{r}
+DF3 <- select(NUTS2.DF, -TotPopNr, -Area)
+head(DF3,10)
+
+```
+
+
+--- 
+
+## `filter()`  - subset rows on conditions
+
+* To choose rows based on a specific criteria, use `filter()`:
+
+
+
+```{r, purl = FALSE}
+# Choose all records for Slovenia
+filter(NUTS2.DF, NUTS0 == "SI")
+```
+
+
+
+```{r, purl = FALSE}
+# Choose all records for Slovenia AND year 2011
+filter(NUTS2.DF, Year == 2011, NUTS0 == "SI")
+```
+
+---
+
+
+## Pipes `%>%`
+
+What if you want to select and filter at the same time? There are three
+ways to do this: 
+
++ use intermediate steps, 
++ nested functions, 
++ pipes.
+
+--- 
+
+##### Sample exercise: Get TotPopNr data (*plus id info* Year and NUTS2) for Slovenia, year 2011 and older
+
+With **intermediate steps**, you create a temporary data frame and use
+that as input to the next function, like this:
+
+```{r}
+DF4 <- filter(NUTS2.DF, Year <= 2011, NUTS0 == "SI")
+DF5 <- select(DF4, Year, NUTS2, TotPopNr)
+DF5
+```
+
+* This is readable, but can clutter up your workspace with lots of objects that you have to name individually. With multiple steps, that can be hard to keep track of.
+
+--- 
+
+You can also **nest functions** (i.e. one function inside of another), like this:
+
+```{r}
+select(filter(NUTS2.DF, Year <= 2011, NUTS0 == "SI"), Year, NUTS2, TotPopNr)
+```
+
+* This is handy, but can be difficult to read if too many functions are nested, as R evaluates the expression from the inside out (in this case, filtering, then selecting).
+
+--- 
+
+The last option, **pipes**, are a recent addition to R. Pipes let you take
+the output of one function and send it directly to the next, which is useful
+when you need to do many things to the same dataset.  
+
+Pipes in R look like `%>%` and are available within `{dplyr}` (as well as other packages). 
+
+* If you use RStudio, you can type the pipe with <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you have a PC 
+* or <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you have a Mac.
+
+```{r}
+NUTS2.DF %>%
+  filter(Year <= 2011, NUTS0 == "SI") %>%
+  select(Year, NUTS2, TotPopNr)
+```
+
+* The pipe operator `%>%` takes the object on its left and passes it as the first argument to the function on its right, we don't need to explicitly include the data frame as an argument to the `filter()` and `select()` functions any more.
+
+* In the above code, we use the pipe to send the `NUTS2.DF` dataset first through `filter()` to keep rows where `Year` is $\leq$ 2011 AND `NUTS0 == "SI"`, then through `select()` to keep only the `Year`, `NUTS2` and `TotPopNr` columns. 
+
+* Some may find it helpful to read the pipe like the word **then**. 
+
+* The **`dplyr`** functions by themselves are somewhat simple, but by combining them into linear workflows with the pipe, we can accomplish more complex manipulations of data frames.
+
+* If we want to create a new object with this smaller version of the data, we can assign it a new name:
+
+```{r}
+NUTS.SI <- NUTS2.DF %>%
+  filter(Year <= 2011, NUTS0 == "SI") %>%
+  select(Year, NUTS2, TotPopNr)
+NUTS.SI
+```
+
+* Note that the final data frame is the leftmost part of the piping expression.
+
+--- 
+
+**Quick exercise 1:** 
+
+Complete `R` script below as follows, using the `NUTS2.DF` data frame: 
+
+* Filter GDP data: restrict only to Austria (`"AT"`) AND Years 2015 or later,
+* Select columns: Year, NUTS2, GDP_MIO_EUR,
+* Use the pipe syntax
+
+```{r}
+# Uncomment and complete the task
+#NUTS2.DF %>%
+
+```
+
+---
+
+## `mutate()`  - create new columns using information in other columns
+
+```{r}
+# For Slovenia, calculate GDP per capita (in EUR)
+NUTS2.DF %>%
+  filter(NUTS0 == "SI") %>%
+  mutate(GDPpc = (GDP_MIO_EUR/TotPopNr)*1000000) %>%
+  head(10) # pipes work with non-dplyr commands as well (if dplyr is loaded)
+```
+
+--- 
+
+**Quick exercise 2:** 
+
+Complete `R` script below as follows: 
+
+Show population dentisty by NUTS2 regions  
+
+* Use (filter for) year 2016,
+* Calculate population density `PopDens` (TotPopNr / Area) ,
+* Show columns: NUTS2, `PopDens`,
+* Use the pipe syntax
+* Show the first 15 rows in your Rmd output,
+
+```{r}
+# Uncomment and complete the task
+#NUTS2.DF %>%
+
+```
+
+--- 
+
+## `group_by()` and `summarize()`  - summary on grouped data
+
+```{r}
+# Calculate average value of GDP per capita at the State level, year 2016
+# .. serves for illustration only - NUTS2 to NUTS0 averages are not weighted by population
+NUTS2.DF %>%
+  filter(Year == 2016) %>%
+  mutate(GDPpc = (GDP_MIO_EUR/TotPopNr)*1000000) %>%
+  group_by(NUTS0) %>% 
+  summarize(mean_GDPpc = mean(GDPpc, na.rm = TRUE))
+```
+
+* Note the output is not a `data.frame` table, but a `tibble` - `{dplyr}` / `{tidyverse}` specific format.
+
+* Many data analysis tasks can be approached using the *split-apply-combine* paradigm: split the data into groups, apply some analysis to each group, and then combine the results. 
+
+* `group_by()` is often used together with `summarize()`, which collapses each group into a single-row summary of that group.  `group_by()` takes as arguments the column names that contain the **categorical** variables for which you want to calculate the summary statistics.
+
+--- 
+
+## `group_by()` and `mutate()`  
+
+* May be used for calculations on grouped data, 
+* Easy to calculate lags and individual means for panel data
+
+```{r}
+# For Slovenia, calculate first lag of GDP and individual means (over time) for TotPopNr
+NUTS2.DF %>%
+  select(-Area) %>% 
+  filter(NUTS0 == "SI") %>%
+  group_by(NUTS2) %>% 
+  mutate(GDP_lag1 = lag(GDP_MIO_EUR, k = 1), PopAvg = mean(TotPopNr))
+```
+
+
+--- 
+
+## `arrange()`  - sort results
+
+```{r}
+# For Slovenia, calculate first lag of GDP and sort: fist by region, then by time
+NUTS2.DF %>%
+  select(-Area, -TotPopNr) %>% 
+  filter(NUTS0 == "SI") %>%
+  group_by(NUTS2) %>% 
+  mutate(GDP_lag1 = lag(GDP_MIO_EUR, k = 1)) %>% 
+  arrange(NUTS2,Year) # sorts by NUTS2, then by Year - both ascending
+```
+
+* To sort in descending order, use `desc()`.
+* e.g. `arrange(desc(NUTS2),Year)`
+* You can use `ungroup()` in the pipe for removing the grouping (e.g. for subsequent analysis).
+
+
+---- 
+
+# Joining data from multiple datasets
+
+Read in additional dataset 
+
+| Variable    | Description                                                     |
+|-------------|-----------------------------------------------------------------|
+| Year        |  time identification of the observation 2011 - 2016  **(no 2010)**  |
+| NUTS2       |  NUTS2 id   **(same 113 regions) **                                 |
+| Unem        |  Unemployment rate in %                                         |
+
+```{r, message = FALSE,}
+## load sample data
+Unem <- read.csv("datasets/NUTS2data2.csv")
+str(Unem)
+```
+
+--- 
+
+## `left_join()`  - joins two datasets
+
+##### Start with `NUTS2.DF` and *append* `Unem` dataset
+
+```{r, message = FALSE,}
+# Note the missing 2010 Unem values
+NewDF <- left_join(NUTS2.DF, Unem, by = c("Year", "NUTS2"))
+str(NewDF)
+# Show output - head of the table only
+NewDF %>% 
+ arrange(NUTS2,Year) %>% 
+ head(12)
+```
+
+* All observations in the `left` dataset (`NUTS2.DF`) are preserved.
+
+* `NA` generated if `Unem` observation for a given `"Year", "NUTS2"` combination is not available
+
+--- 
+
+**Alternative ordering od data.frames to join:** Start with `Unem` and *append* `NUTS2.DF` dataset
+
+```{r, message = FALSE,}
+# Note the missing 2010 Unem values
+# Show output - head of the table only
+Unem %>% 
+  left_join(NUTS2.DF, by = c("Year", "NUTS2")) %>% 
+  arrange(NUTS2,Year) %>% 
+  head(12)
+```
+
+* Note the changed ordering of columns.
+
+* All observations in the `left` dataset (`Unem`) are preserved.
+
+* Observations for `2010` in `NUTS2.DF` are NOT *imported*, as there is no such combination of `"Year", "NUTS2"` in the `Unem` dataset.
+
+* `inner_join()` , `right_join()` are available in `dplyr` package.
+
+* sometimes, `merge()` from the `base` packge may be a reasonable alternative.
+
+--- 
+
+This worksheet draws from 
+
+* [Manipulating, analyzing and exporting data with tidyverse](https://github.com/datacarpentry/R-ecology-lesson/blob/master/03-dplyr.Rmd) 
+
+* [Data wrangling webinar](http://ucsb-bren.github.io/env-info/wk03_dplyr/wrangling-webinar.pdf) 
+
+

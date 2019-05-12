@@ -8,7 +8,7 @@ install.packages(c("yaml","qtl","WDI","countrycode"), dependencies = T)
 #
 install.packages(c("sf","rgdal","rgeos","eurostat"), dependencies = T)
 #
-install.packages("RColorBrewer", dependencies = T)
+install.packages(c("RColorBrewer","grid"), dependencies = T)
 # 
 install.packages(c("spdep","spatialreg","splm","spmoran","gstat"), dependencies = T)
 #
