@@ -2,7 +2,7 @@
 #
 install.packages(c("ggplot2","dplyr","tidyr","tidyverse","reshape2"), dependencies = T)
 #
-install.packages(c("ISLR","markdown","knitr"), dependencies = T)
+install.packages(c("ISLR","markdown","knitr","kableExtra"), dependencies = T)
 #
 install.packages(c("yaml","qtl","WDI","countrycode"), dependencies = T)
 #
