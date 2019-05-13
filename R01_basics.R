@@ -10,8 +10,6 @@ x <- 10 + rnorm(1, mean=0, sd=2)
 x
 x*x
 x^2
-x^3
-x+x
 sqrt(x)
 log(x)
 exp(x)
@@ -83,8 +81,6 @@ summary(M1)
 ##### Matrix multiplication operator is %*%
 #
 M3 <- M1 %*% M2 
-M3
-colnames(M3) <- colnames(M1)
 M3
 #
 #
