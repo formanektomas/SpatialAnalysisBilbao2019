@@ -63,6 +63,8 @@ Please observe the following instructions:
 - Bring your own laptop/notebook, make sure you have access to the Internet (e.g. through **eduroam** at Universidad del País Vasco)  
 - Have [R](https://www.r-project.org/) version 3.6.0 (3.5.3 is also OK) installed on your device (PC/Mac/Linux)  
 - Have [RStudio](https://www.rstudio.com/products/rstudio/download/) installed (free desktop version 1.2.1335 or newer)  
+    + If you experience [problems](https://github.com/rstudio/rstudio/issues/3661) while compiling `Rmd` files, you may consider installing the newest version of [Pandoc document converter](https://pandoc.org/installing.html). 
+    + (Pandoc is part of RStudio instalation, new version solves the file conversion problems)
 - Setup an *R working directory* (e.g. on your machine's Desktop) - see instructions [Changing the Working Directory](https://support.rstudio.com/hc/en-us/articles/200711843-Working-Directories-and-Workspaces)  
 - Download all files from [GitHub repository](https://github.com/formanektomas/SpatialAnalysisBilbao2019) to your *R working directory*  (if not familiar with Git/GitHub, just use the green button "Clone or download")  
 - Install all packages for the course - run the file `R_Packages.R` downloaded from GitHub repository for this course.  
