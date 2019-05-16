@@ -77,10 +77,7 @@ Please observe the following instructions:
 
 - [Kleiber, Zeileis (2008): Applied Econometrics with R](https://www.springer.com/gp/book/9780387773162)  
     + From introductory to advanced econometric analysis using R/RStudio  
-
 - [Bivand, Pebesma, Gómez-Rubio (2013): Applied Spatial Data Analysis with R](https://link.springer.com/book/10.1007%2F978-1-4614-7618-4)  
     + Predates `{sf}` package  
-    
 - [Simple Features for R](https://r-spatial.github.io/sf/) 
-
 - [List of R packages for different types of spatial analysis](https://cran.r-project.org/web/views/Spatial.html)  
