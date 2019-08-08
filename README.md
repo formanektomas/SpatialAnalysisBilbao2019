@@ -81,3 +81,13 @@ Please observe the following instructions:
     + Predates `{sf}` package  
 - [Simple Features for R](https://r-spatial.github.io/sf/) 
 - [List of R packages for different types of spatial analysis](https://cran.r-project.org/web/views/Spatial.html)  
+
+--- 
+
+### Important self-study note (post-seminar)
+
+- many commands and functions of the `{spdep}` package have been moved to the `{spatialreg}` package. 
+
+    + This is not reflected in the codes provided.
+    + You may simply call `library(spatialreg)` if necessary
+    
