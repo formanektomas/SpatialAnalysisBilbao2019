@@ -51,8 +51,8 @@ summary(Income)
 #
 # 3) Merge with {sf} spatial data
 # .. if you want LAEA geometry, use map-transformation before joining.
-Income.sf <- Income %>% 
-  dplyr::inner_join(df60, by = c("geo" = "NUTS_ID"))   
+Income.sf <- df60 %>% 
+  dplyr::inner_join(Income, by = c(  "NUTS_ID"="geo"))   
 # .. geo becomes character vector, which is OK
 summary(Income.sf) # PPS/Hab for all NUTS2 regions and for two years + shapefiles
 #
