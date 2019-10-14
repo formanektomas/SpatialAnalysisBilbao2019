@@ -88,7 +88,7 @@ kable(search_eurostat(".*Unemployment.*rates.*NUTS", fixed=F))
 # Alternatively, you can use grep() to search a downloaded TOC
 # .. this way, you can ignore the case-sensitive "issue"
 toc <- get_eurostat_toc() # Downloads Table of Contents of Eurostat Data Sets
-toc[grep(".*unemployment.*rates.*NUTS", toc$title, ignore.case = T),]
+toc[grep(".*unemployment.*rates.*NUTS", toc$title, ignore.case = T),]$title
 # ... this R code is not executed, provided for your information only
 # ... you can switch the `eval` argument to produce the output table
 ```
