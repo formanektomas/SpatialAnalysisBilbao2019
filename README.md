@@ -82,3 +82,8 @@ Please observe the following instructions:
 - [Simple Features for R](https://r-spatial.github.io/sf/) 
 - [List of R packages for different types of spatial analysis](https://cran.r-project.org/web/views/Spatial.html)  
 
+---
+
+### Home page
+
+[https://formanektomas.github.io/SpatialAnalysisBilbao2019/](https://formanektomas.github.io/SpatialAnalysisBilbao2019/)
